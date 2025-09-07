@@ -136,3 +136,7 @@ question_container.addEventListener("click", (e) => {
 
 PrintQuestion();
 
+next.addEventListener("click", () => {
+  index++;
+  PrintQuestion();
+});

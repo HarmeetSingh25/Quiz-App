@@ -102,3 +102,37 @@ function PrintQuestion() {
 }
 // }
 
+question_container.addEventListener("click", (e) => {
+  let TargetElem = e.target.closest("#Btn");
+  if (TargetElem) {
+    next.style.visibility = "visible";
+  }
+  if (answered) return;
+  answered = true;
+  TargetElem.style.scale = 1.1;
+  let AllOption = TargetElem.parentElement.querySelectorAll("#Btn");
+
+  AllOption.forEach((ans) => {
+    ans.classList.add("disabled");
+    if (ans.dataset.correct === "true") {
+      ans.style.background = "lightgreen";
+    } else {
+      ans.style.background = "red";
+    }
+  });
+  if (TargetElem.dataset.correct == "true") {
+    score++;
+  }
+  if (TargetElem)
+    setTimeout(() => {
+      if (!next) return;
+      next.classList.add("show");
+    }, 1000);
+
+  if (TargetElem) {
+    next.classList.add("show");
+  }
+});
+
+PrintQuestion();
+

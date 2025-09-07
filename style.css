@@ -1,10 +1,123 @@
+:root {
+  --correctAnswer: #bbdce5;
+  --bg: #eceedf;
+  --hover: #d9c4b0;
+  --bodyBg: #cfab8d;
+}
+
+@font-face {
+  font-family: poppins;
+  src: url(Poppins-Regular.ttf);
+}
+
 * {
+  font-family: poppins;
+  font-weight: 600;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 html,
 body {
   width: 100%;
   height: 100%;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: var(--bodyBg);
+}
+
+.Quiz_container {
+  padding: 2rem;
+  border-radius: 10px;
+  background: var(--bg);
+  width: 35%;
+  height: 60%;
+}
+
+.Quiz_container > h1 {
+  color: #111;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid black;
+}
+
+.question_container {
+  margin-top: 1.5rem;
+}
+
+/* .question_container h2 {
+  font-size: 1rem;
+} */
+
+.answer_Container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+#Btn {
+  display: flex;
+  width: 100%;
+  text-align: left;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: white;
+  transition: 0.2s linear;
+  margin-top: 1rem;
+}
+#Btn:hover {
+  background-color: var(--hover);
+}
+
+#NextBtn {
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: left;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  background-color: #faa533;
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+  transition: opacity 300ms ease, transform 300ms ease;
+  visibility: hidden;
+}
+#NextBtn.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  visibility: visible;
+}
+#Again {
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: left;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  background-color: #faa533;
+  /* opacity: 0; */
+  transform: translateY(8px) scale(0.98);
+  transition: opacity 300ms ease, transform 300ms ease;
+  /* visibility: hidden; */
+}
+#Again.show {
+  /* opacity: 1; */
+  transform: translateY(0) scale(1);
+  /* visibility: visible; */
+}
+
+/* .answer-btn {
+  transition: background 300ms ease, transform 120ms ease;
+} */
+#Btn.disabled {
+  cursor: not-allowed;
+  opacity: 0.9;
 }
